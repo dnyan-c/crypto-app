@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../components/Common/Header'
-import TabsComponent from '../components/Dashboard'
+import TabsComponent from '../components/Dashboard/Tabs'
 import axios from "axios";
 
 function DashboardPage() {
