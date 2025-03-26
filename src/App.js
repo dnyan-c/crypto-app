@@ -14,7 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           {/* <Route path="/" element={<HomePage />} /> */}
           <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/coin/:id" element={<CoinPage />} />
+          <Route path="/coin/:coinId" element={<CoinPage />} />
           <Route path="/compare" element={<ComparePage />} />
           <Route path="/watchlist" element={<WatchlistPage />} />
         </Routes>
