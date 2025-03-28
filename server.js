@@ -56,7 +56,8 @@ app.get('/api/crypto/:coinId', async (req, res) => {
 
     const coinData = infoResponse.data.data[coinId];
     const marketData = marketResponse.data.data.find(coin => coin.id == coinId);
-
+ //console.log(marketData , "MARKET DATA");
+ //console.log(coinData,  "COIN DATA");
     if (!coinData || !marketData) {
       return res.status(404).json({ error: "Coin data not found" });
     }
@@ -69,7 +70,7 @@ app.get('/api/crypto/:coinId', async (req, res) => {
       slug: coinData.slug,
       image: coinData.logo,
       desc: coinData.description,
-      price_change_percentage_24h: marketData.quote?.USD?.volume_change_24h,
+      price_change_percentage_24h: marketData.quote.USD.volume_change_24h,
       total_supply: marketData.total_supply,
       current_price: marketData.quote.USD.price,
       market_cap: marketData.quote.USD.market_cap,
