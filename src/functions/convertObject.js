@@ -1,5 +1,5 @@
 export const coinObject = (setState, data) => {
-    console.log("DAATA -----", data);
+    //console.log("DAATA -----", data);
     setState({
         id: data?.id,
         name: data?.name,

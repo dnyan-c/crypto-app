@@ -4,12 +4,14 @@ import TrendingDownRoundedIcon from '@mui/icons-material/TrendingDownRounded';
 import TrendingUpRoundedIcon from '@mui/icons-material/TrendingUpRounded';
 import { Tooltip } from '@mui/material';
 import { convertNumber } from '../../../functions/convertNumbers';
+
 function List({ coin }) {
+    console.log(coin);
     return (
         <tr className="list-row">
-            <Tooltip title="Coin logo" placement="bottom-start">
+            <Tooltip title="Coin Logo">
                 <td className="td-image">
-                    <img src={coin.image} className="td-coin-logo" />
+                    <img src={coin?.image} className="coin-logo" />
                 </td>
             </Tooltip>
             <Tooltip title="Coin Info" placement="bottom-start">
@@ -67,7 +69,7 @@ function List({ coin }) {
             <Tooltip title="Market Cap" placement="bottom-start">
                 <td className="mobile-td-mkt">
                     <p className="market_cap td-right-align">
-                    ${coin?.market_cap}
+                        ${coin?.market_cap}
                         {/* ${convertNumber(coin.quote?.USD?.market_cap)} */}
                     </p>
                 </td>
