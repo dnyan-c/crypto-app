@@ -6,6 +6,7 @@ import Loader from '../components/Common/Loader';
 import { coinObject } from '../functions/convertObject';
 import List from '../components/Dashboard/List';
 import CoinInfo from '../components/Coin/CoinInfo';
+import LineChart from '../components/Coin/LineChart';
 
 function CoinPage() {
   const params = useParams();
@@ -13,9 +14,13 @@ function CoinPage() {
   const coinId = params.coinId;
   const [isLoading, setisLoading] = useState(true);
   const [coinData, setCoinData] = useState();
+  const [days, setDays] = useState(30);
+  const [priceType, setPriceType] = useState("prices");
 
   useEffect(() => {
     if (coinId) {
+
+
       axios.get(`http://localhost:5000/api/crypto/${coinId}`)
         .then((response) => {
           console.log("RESPONSE coin js >>>", response.data);
@@ -37,6 +42,9 @@ function CoinPage() {
       {isLoading ? (<Loader />) : coinData ? (<>
         <div className="grey-wrapper">
           <List coin={coinData} />
+        </div>
+        <div className="grey-wrapper">
+          <LineChart chartData={chartData} />
         </div>
         <CoinInfo heading={coinData?.name || 'N/A'} desc={coinData?.desc || 'No Description Available'} />
       </>
